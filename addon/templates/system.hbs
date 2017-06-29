@@ -1,18 +1,18 @@
 <h2>{{model.name}}</h2>
 
 <div class='grid'>
-  {{md-text text=model.description}}
+  {{markdown-to-html model.description}}
   {{#each model.params as |param|}}
     <span class="{{if param.optional 'optional'}}">{{param.name}}</span>
-    {{md-text text=param.description}}
+    {{markdown-to-html param.description}}
   {{/each}}
 
   {{#each model.classitems as |attribute|}}
     {{attribute.name}}
-    {{md-text text=attribute.description}}
+    {{markdown-to-html attribute.description}}
     {{#each attribute.params as |param|}}
       <span class="{{if param.optional 'optional'}}">{{param.name}}</span>
-      {{md-text text=param.description}}
+      {{markdown-to-html param.description}}
     {{/each}}
   {{/each}}
 </div>

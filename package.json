@@ -21,7 +21,9 @@
     "broccoli-merge-trees": "^2.0.0",
     "broccoli-yuidoc": "^3.0.0",
     "ember-cli-babel": "^5.1.7",
-    "ember-cli-htmlbars": "^1.1.1"
+    "ember-cli-htmlbars": "^1.1.1",
+    "ember-cli-showdown": "^3.2.2",
+    "ember-svg-jar": "^0.10.3"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

@@ -7,7 +7,7 @@ module.exports = EngineAddon.extend({
   name: 'addon-docs',
   lazyLoading: false,
 
-  treeForApp: function (tree) {
+  treeForPublic: function () {
     let docs = new YUIDoc(['addon'], {
       destDir: 'docs',
       yuidoc: {
@@ -15,6 +15,6 @@ module.exports = EngineAddon.extend({
       }
     });
 
-    return mergeTrees([tree, docs]);
+    return mergeTrees([docs]);
   }
 });

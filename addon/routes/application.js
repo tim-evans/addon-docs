@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import $ from 'jquery';
-import config from '../config/environment';
+
+const { get, inject: { service } } = Ember;
 
 function remoteFilename(filename) {
   return '/' + filename.match(/\.tmp\/(.*)$/)[1].trim();
@@ -12,8 +13,11 @@ function localFilename(filename) {
 }
 
 export default Ember.Route.extend({
+
+  config: service(),
+
   model() {
-    return $.get(`${config.rootURL}docs/data.json`).then(function (docs) {
+    return $.get(`${get(this, 'config.rootURL')}docs/data.json`).then(function (docs) {
       docs.classitems.forEach(function (classitem) {
         docs.classes[classitem.class].classitems.push(classitem);
         docs.classes[classitem.class].file = remoteFilename(classitem.file);

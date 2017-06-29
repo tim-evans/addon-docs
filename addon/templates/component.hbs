@@ -1,10 +1,10 @@
 <h2>{{concat '{{' model.name '}}'}}</h2>
 
 <div class='grid'>
-  {{md-text text=model.description}}
+  {{markdown-to-html model.description}}
 
   {{#each model.attributes as |attribute|}}
     {{attribute.name}}
-    {{md-text text=attribute.description}}
+    {{markdown-to-html attribute.description}}
   {{/each}}
 </div>

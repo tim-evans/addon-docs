@@ -16,30 +16,38 @@
   {{/if}}
   <div class='grid'>
     <nav>
-      <h3>Components</h3>
-      <ul>
-        {{#each model.components as |component|}}
-          <li>{{#link-to 'docs.component' component.name}}{{concat '{{' component.name '}}'}}{{/link-to}}</li>
-      {{/each}}
-      </ul>
-      <h3>Helpers</h3>
-      <ul>
-        {{#each model.helpers as |helper|}}
-          <li>{{#link-to 'docs.helper' helper.name}}{{concat '{{' helper.name '}}'}}{{/link-to}}</li>
-      {{/each}}
-      </ul>
-      <h3>Services</h3>
-      <ul>
-        {{#each model.services as |service|}}
-          <li>{{#link-to 'docs.service' service.name}}{{service.name}}{{/link-to}}</li>
+      {{#if model.components}}
+        <h3>Components</h3>
+        <ul>
+          {{#each model.components as |component|}}
+            <li>{{#link-to 'component' component.name}}{{concat '{{' component.name '}}'}}{{/link-to}}</li>
         {{/each}}
-      </ul>
-      <h3>Objects</h3>
-      <ul>
-        {{#each model.objects as |object|}}
-          <li>{{#link-to 'docs.system' object.name}}{{object.name}}{{/link-to}}</li>
-        {{/each}}
-      </ul>
+        </ul>
+      {{/if}}
+      {{#if model.helpers}}
+        <h3>Helpers</h3>
+        <ul>
+          {{#each model.helpers as |helper|}}
+            <li>{{#link-to 'helper' helper.name}}{{concat '{{' helper.name '}}'}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+      {{#if model.services}}
+        <h3>Services</h3>
+        <ul>
+          {{#each model.services as |service|}}
+            <li>{{#link-to 'service' service.name}}{{service.name}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
+      {{#if model.objects}}
+        <h3>Objects</h3>
+        <ul>
+          {{#each model.objects as |object|}}
+            <li>{{#link-to 'system' object.name}}{{object.name}}{{/link-to}}</li>
+          {{/each}}
+        </ul>
+      {{/if}}
     </nav>
     <div>
       {{outlet}}
